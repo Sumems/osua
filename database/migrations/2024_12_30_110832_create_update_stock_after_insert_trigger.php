@@ -13,7 +13,7 @@ return new class extends Migration
     public function up()
     {
         DB::statement('
-            CREATE TRIGGER update_stock_after_insert
+            CREATE TRIGGER updateProductStock
             AFTER INSERT ON transactions
             FOR EACH ROW
             BEGIN
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        DB::statement('DROP TRIGGER IF EXISTS update_stock_after_insert');
+        DB::statement('DROP TRIGGER IF EXISTS updateProductStock');
     }
 };
