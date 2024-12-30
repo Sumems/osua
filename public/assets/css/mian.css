@@ -1,0 +1,26 @@
+:root {
+    --color-default: #0a0d13;
+    --primary: #A82E19;
+    --secondary: #6F1D11;
+    --gold: #968168; 
+    --red: #872C2B;
+    --white: white;
+    --bg-light: #d9d9d9;
+    --font-family: "Pathway Gothic One", sans-serif;
+}
+
+html, body {
+    font-family: var(--font-family);
+}
+
+.navbar-nav {
+    --bs-nav-link-hover-color: var(--gold);
+}
+
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+    color: var(--gold);
+}
+
+.vr {
+    display: block;
+}

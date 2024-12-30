@@ -1,0 +1,49 @@
+:root {
+    --color-default: #0a0d13;
+    --primary: #A82E19;
+    --secondary: #6F1D11;
+    --gold: #968168; 
+    --red: #872C2B;
+    --white: white;
+    --bg-light: #d9d9d9;
+    --font-family: "Pathway Gothic One", sans-serif;
+}
+
+html, body {
+    font-family: var(--font-family);
+    background-color: var(--primary);
+    height: 100%;
+}
+
+.bg-auth-img {
+    background: url("../image/carousel-1.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.form-control-user {
+    padding: 0.5rem 0.75rem;
+    margin: 1rem 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    padding: 0.5rem 1rem;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary);
+}
+
+.form-alert {
+    margin: 0.5rem 0;
+    padding: 0.5rem 0;
+}
