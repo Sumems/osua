@@ -55,7 +55,8 @@
                             <div class="card-body">
                                 <div id="route-info">
                                     <p class="text-muted p-0 m-0" id="your-location"></p>
-                                    <button class="btn btn-success w-100" id="show-route" disabled>Pindahkan pin hijau pada peta untuk memilih titik start</button>
+                                    <button class="btn btn-success w-100" id="show-route" disabled>Pindahkan pin hijau pada
+                                        peta untuk memilih titik start</button>
                                 </div>
                             </div>
                         </div>
@@ -116,9 +117,30 @@
 
         function getLocation() {
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition, showError);
+                // Tambahkan options untuk memaksa high accuracy
+                const options = {
+                    enableHighAccuracy: true,
+                    timeout: 5000,
+                    maximumAge: 0
+                };
+
+                navigator.geolocation.getCurrentPosition(showPosition, showError, options);
+
+                // Tambahkan pesan panduan
+                const coordinatesDisplay = document.getElementById('your-location');
+                coordinatesDisplay.innerHTML = `
+            <div class="alert alert-info">
+                <i class="bi bi-info-circle"></i>
+                Mohon izinkan akses lokasi di browser Anda:
+                <ul>
+                    <li>Klik ikon kunci/lokasi di address bar browser</li>
+                    <li>Pilih "Izinkan" atau "Allow" untuk akses lokasi</li>
+                    <li>Refresh halaman jika diperlukan</li>
+                </ul>
+            </div>`;
             } else {
-                alert("Geolocation tidak didukung oleh browser ini.");
+                alert(
+                    "Geolocation tidak didukung oleh browser ini. Mohon gunakan browser modern seperti Chrome, Firefox, atau Safari.");
             }
         }
 
@@ -132,18 +154,40 @@
         }
 
         function showError(error) {
+            const coordinatesDisplay = document.getElementById('your-location');
             switch (error.code) {
                 case error.PERMISSION_DENIED:
-                    alert("Pengguna menolak permintaan lokasi.");
+                    coordinatesDisplay.innerHTML = `
+                <div class="alert alert-warning">
+                    <i class="bi bi-exclamation-triangle"></i>
+                    Akses lokasi ditolak. Untuk menggunakan fitur ini:
+                    <ul>
+                        <li>Klik ikon kunci/lokasi di address bar browser</li>
+                        <li>Ubah pengaturan lokasi menjadi "Allow"</li>
+                        <li>Refresh halaman ini</li>
+                    </ul>
+                </div>`;
                     break;
                 case error.POSITION_UNAVAILABLE:
-                    alert("Informasi lokasi tidak tersedia.");
+                    coordinatesDisplay.innerHTML = `
+                <div class="alert alert-danger">
+                    <i class="bi bi-x-circle"></i>
+                    Lokasi tidak tersedia. Pastikan GPS perangkat Anda aktif.
+                </div>`;
                     break;
                 case error.TIMEOUT:
-                    alert("Permintaan lokasi timeout.");
+                    coordinatesDisplay.innerHTML = `
+                <div class="alert alert-warning">
+                    <i class="bi bi-clock"></i>
+                    Waktu permintaan lokasi habis. Silakan coba lagi.
+                </div>`;
                     break;
                 case error.UNKNOWN_ERROR:
-                    alert("Terjadi kesalahan yang tidak diketahui.");
+                    coordinatesDisplay.innerHTML = `
+                <div class="alert alert-danger">
+                    <i class="bi bi-x-circle"></i>
+                    Terjadi kesalahan yang tidak diketahui. Silakan refresh halaman.
+                </div>`;
                     break;
             }
         }

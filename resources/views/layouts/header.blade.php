@@ -19,6 +19,9 @@
                     <a href="{{ route('product') }}" class="{{ (request()->is('product')) ? 'active' : '' }} fs-5">Produk</a>
                 </li>
                 <li>
+                    <a href="{{ route('hiking-trails') }}" class="{{ (request()->is('product')) ? 'active' : '' }} fs-5">Jalur Pendakian</a>
+                </li>
+                <li>
                     <a href="{{ route('about') }}" class="{{ (request()->is('about')) ? 'active' : '' }} fs-5">Tentang Kami</a>
                 </li>
                 <div id="vr" class="vr ms-4"></div>

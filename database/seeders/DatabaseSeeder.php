@@ -29,5 +29,9 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('user1234'), // Use bcrypt to hash the password
             'role' => 'User',
         ]);
+
+        $this->call([
+            HikingTrailsSeeder::class
+        ]);
     }
 }

@@ -15,19 +15,29 @@ class HikingTrailsSeeder extends Seeder
     {
         $hikingTrails = [
             [
-                'name' => 'Gunung Semeru',
+                'name' => 'Gunung_Manglayang',
+                'latitude' => -6.8778940,
+                'longitude' =>	107.7439500,
+            ],
+            [
+                'name' => 'Gunung_Cikuray',
+                'latitude' => -7.322513,
+                'longitude' =>	107.859865,
+            ],
+            [
+                'name' => 'Gunung_Tangkuban_Perahu',
+                'latitude' => -6.7534090,
+                'longitude' =>	107.6082640,
+            ],
+            [
+                'name' => 'Gunung_Semeru',
                 'latitude' => -8.1077,
                 'longitude' => 112.922,
             ],
             [
-                'name' => 'Gunung Gede',
+                'name' => 'Gunung_Gede',
                 'latitude' => -6.7900,
                 'longitude' => 106.9800,
-            ],
-            [
-                'name' => 'Gunung Manglayang',
-                'latitude' => -6.8778940,
-                'longitude' =>	107.7439500,
             ],
             // Add other hikingTrails as needed
         ];

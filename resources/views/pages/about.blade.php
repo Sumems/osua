@@ -9,7 +9,7 @@ Produk
         <div class="container position-relative">
             <div class="row d-flex justify-content-center">
                 <div class="col-lg-6 text-center">
-                    <h2>Produk</h2>
+                    <h2>About Us</h2>
                 </div>
             </div>
         </div>
@@ -18,7 +18,7 @@ Produk
         <div class="container">
             <ol>
                 <li><a href="{{ route('home') }}">Home</a></li>
-                <li>Produk</li>
+                <li>About</li>
             </ol>
         </div>
     </nav>
