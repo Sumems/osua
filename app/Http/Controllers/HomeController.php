@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\ProductImage;
 
+use App\Models\HikingTrail;
+
 class HomeController extends Controller
 {
     /**
@@ -66,6 +68,7 @@ class HomeController extends Controller
 
     public function hikingTrails()
     {
-        return view('pages.jalur-pendakian');
+        $hikingTrails = HikingTrail::all();
+        return view('pages.jalur-pendakian', compact('hikingTrails'));
     }
 }

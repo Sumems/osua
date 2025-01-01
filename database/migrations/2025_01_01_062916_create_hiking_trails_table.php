@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('hiking_trails', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->float('longitude');
-            $table->float('latitude');
+            $table->decimal('latitude', 10, 7);
+            $table->decimal('longitude', 10, 7);
             $table->timestamps();
         });
     }

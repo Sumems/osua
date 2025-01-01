@@ -10,14 +10,20 @@ class HikingTrail extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'latitude',
+        'longitude',
+        'elevation'
+    ];
     public static function tambah($request)
     {
         DB::beginTransaction();
         try {
             $db = new HikingTrail();
-            $db->name = $request->name;
-            $db->longitude = $request->longitude;
+            $db->name = str_replace(' ', '_', $request->name);
             $db->latitude = $request->latitude;
+            $db->longitude = $request->longitude;
             $db->save();
 
             DB::commit();
@@ -35,9 +41,9 @@ class HikingTrail extends Model
         DB::beginTransaction();
         try {
             $db = HikingTrail::find($request->id);
-            $db->name = $request->name;
-            $db->longitude = $request->longitude;
+            $db->name = str_replace(' ', '_', $request->name);
             $db->latitude = $request->latitude;
+            $db->longitude = $request->longitude;
             $db->save();
 
             DB::commit();
