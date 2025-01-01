@@ -44,6 +44,15 @@
         </a>
     </li>
 
+    <hr class="sidebar-divider my-0">
+
+    <li class="nav-item {{ (request()->is('admin/hiking-trail')) ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('admin.hiking-trail') }}">
+            <i class="fa-solid fa-money-bill-transfer"></i>
+            <span>Hiking Trail</span>
+        </a>
+    </li>
+
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div> 

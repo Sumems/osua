@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\Admin\ArticleController;
+use App\Http\Controllers\Admin\HikingTrailController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\HomeController;
@@ -67,4 +68,9 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/admin/article', [ArticleController::class, 'index'])->name('admin.article');
     Route::get('/admin/article/datatables', [ArticleController::class, 'datatables'])->name('admin.article.datatables');
     Route::match(['post', 'patch', 'delete'], '/article-crud', [ArticleController::class, 'crud'])->name('admin.article.crud');
+
+    // Hiking Trail Master
+    Route::get('/admin/hiking-trail', [HikingTrailController::class, 'index'])->name('admin.hiking-trail');
+    Route::get('/admin/hiking-trail/datatables', [HikingTrailController::class, 'datatables'])->name('admin.hiking-trail.datatables');
+    Route::match(['post', 'patch', 'delete'], '/hiking-trail-crud', [HikingTrailController::class, 'crud'])->name('admin.hiking-trail.crud');
 });

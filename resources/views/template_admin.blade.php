@@ -18,6 +18,19 @@
 
     <link href="{{ asset('assets/css/admin.css') }}" rel="stylesheet">
     {{-- CSS --}}
+    <style>
+        input[name="longitude"]::-webkit-outer-spin-button,
+        input[name="longitude"]::-webkit-inner-spin-button,
+        input[name="latitude"]::-webkit-outer-spin-button,
+        input[name="latitude"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[name="longitude"],
+        input[name="latitude"] {
+            -moz-appearance: textfield;
+        }
+    </style>
 </head>
 
 <body id="page-top">
